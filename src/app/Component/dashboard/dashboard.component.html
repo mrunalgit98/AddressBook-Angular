@@ -1,0 +1,46 @@
+<div class="main-content">
+    <div class="header-content">
+        <div class="add-detail-text">Person Detail</div>
+  
+
+    <!-- <a class="add-button" routerLink="address"> -->
+        <button class="add-button" (click)="onAddUser()">Add User</button>  
+        <!-- Add Person -->
+    <!-- </a> -->
+</div>
+
+<div class="table-main">
+    <table id="table-display" class="table">
+        <thead class="table-heading">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Phone Number</th>
+            
+        </tr>
+        </thead>
+        <tr *ngFor="let addressbook of add">
+            
+            <td>{{addressbook.Id}}</td> 
+        <td>{{addressbook.name}}</td>
+        <td>{{addressbook.address}}</td>
+        <td>{{addressbook.city}}</td>
+        <td>{{addressbook.state}}</td>
+        <td>{{addressbook.zip}}</td>
+        <td>{{addressbook.phone}}</td>
+
+        <td class="action-icon">
+            <img src="../assets/delete.svg" (click)="deleteById(addressbook.Id)">
+            <img src="../assets/edit.svg" (click)="editById(addressbook.Id)">
+           
+           
+          </td>
+
+    </tr>
+    </table>
+</div>
+</div>

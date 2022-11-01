@@ -1,0 +1,89 @@
+
+
+    <div class="form-content">
+        <div class="form-head"  >
+            <span> PERSON ADDRESS FORM </span>
+            <img class="form-head-image" src="../assets/cancel.jpeg" alt="logo" (click)="onCancel()">
+        </div>
+        <form class="form" [formGroup]="addressGroup"  >
+            <!-- <label class="label text" for="name">Name</label>
+            <div class="row-content">
+                <input class="name" type="text" id="name" name="name" placeholder="Enter Name" formControlName="name" ngDefaultControl required>
+                
+            </div> -->
+
+       
+            <mat-label class="label text">Name</mat-label>
+            <div class="row-content">
+            <mat-form-field class="input" appearance="outline" >
+              <input  id="name" name="name" matInput  formControlName="name"  ngDefaultControl required>
+                </mat-form-field>
+            </div>
+
+
+            <mat-label class="label text">Phone</mat-label>
+            <div class="row-content">
+            <mat-form-field class="input" appearance="outline" >
+              <input  id="phone" name="phone" matInput  formControlName="phone"  ngDefaultControl required>
+                </mat-form-field>
+            </div>
+
+         
+
+
+            <mat-label class="label text"> Address</mat-label>
+            <div class="row-content">
+            <mat-form-field class="input" appearance="outline">
+              <textarea type="text" id="address" name="address" rows="4" matInput placeholder="Enter Address"  formControlName="address" ngDefaultControl required></textarea>
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+              <div class="input-content">
+                <mat-label class="labeltext" for="city">City</mat-label>
+                  <div class="row-content">
+                    <mat-form-field appearance="outline">
+                        <mat-label class="label">Select City</mat-label>
+                        <mat-select  formControlName="city" ngDefaultControl>
+                            <mat-option *ngFor="let city of City" value="{{city}}"  >{{city}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="input-content">
+                    <mat-label class="labeltext" for="state">State</mat-label>
+                    <div class="row-content">
+                        <mat-form-field appearance="outline">
+                            <mat-label class="label">Select State</mat-label>
+                            <mat-select  formControlName="state" ngDefaultControl >
+                                <mat-option *ngFor="let state of State" value="{{state}}" >{{state}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+        
+                <div class="input-content">
+                <mat-label class="labeltext" for="zip">ZipCode</mat-label>
+                 <div class="row-content">
+                <mat-form-field  class=""  appearance="outline">
+                  <input  type="text" id="zip" name="name" matInput   formControlName="zip" ngDefaultControl required>
+                    </mat-form-field>
+                </div> 
+            </div>
+
+
+            </div>
+
+            <div class="buttonParent">
+                <div class="add-reset">
+                    <button  mat-button type="submit" class="button addButton" *ngIf="this.Id==null" type="submit" id="addButton" (click)="submit()" >Add</button>
+                    
+                    <button  mat-button type="update" class="button submitButton" type="update" *ngIf="this.Id!=null"  id="update" (click)="updateData()" > Update </button>&nbsp;&nbsp;
+                    <button  mat-button type="reset" class="resetButton button" id="resetButton">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+

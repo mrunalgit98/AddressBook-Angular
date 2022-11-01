@@ -1,0 +1,26 @@
+
+.logo-content {
+    display: flex;
+    flex-direction: row;
+    padding-left: 1px;
+    cursor: pointer;
+    height: 51px;
+}
+
+.address-book-text {
+    font-size: 15px;
+    text-transform: capitalize;
+    flex-direction: column;
+    display: flex;
+    letter-spacing: 0px;
+    padding-left: 10px;
+    font: normal normal bold 20px/25px Montserrat;
+    font-family: "Montserrat", sans-serif;
+    .address-text {
+        color: blue;
+    }
+    .book-text {
+        color: black;
+    }
+}
+
