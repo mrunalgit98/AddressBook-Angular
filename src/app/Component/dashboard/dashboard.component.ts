@@ -14,7 +14,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAll();
-    
+  
+
   }
   onAddUser(){
     this.router.navigate(["form"]);
@@ -30,7 +31,9 @@ export class DashboardComponent implements OnInit {
   }
   deleteById(Id:number){
     console.log(Id);
-    this.service.deleteById(Id).subscribe((data:any)=>{
+
+    this.service.deleteById(Id).subscribe((data)=>{
+      console.log("user has been deleted",Id)
       this.ngOnInit();
       this.router.navigate(["dashboard"]);
     })

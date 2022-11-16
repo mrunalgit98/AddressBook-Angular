@@ -20,7 +20,7 @@ export class FormComponent implements OnInit {
   address:AddressBookModel =new AddressBookModel("","","","","","")
   constructor(private router:Router,private addService:AddressService,private route:ActivatedRoute,private fb: FormBuilder,) {
     
-   
+    
   }
 
 addressGroup=new FormGroup({
@@ -35,8 +35,15 @@ addressGroup=new FormGroup({
   ngOnInit(): void {
     this.addService.getById(this.Id).subscribe((response:any)=>{
     console.log(response);
-    this.address=response.data;
-    })
+     this.addressGroup=new FormGroup({
+      name : new FormControl(response['name']),
+  phone :new FormControl(response['phone']),
+ address:new FormControl(response['address']),
+ city:new FormControl(response['city']),
+ state:new FormControl(response['state']),
+ zip:new FormControl(response['zip'])
+     })
+    });
   }
  
   onCancel(){
@@ -52,16 +59,9 @@ addressGroup=new FormGroup({
   }
 
   updateData(){
-    this.addService.updateById(this.address,this.Id).subscribe((data:any)=>{
+    this.addService.updateById(this.addressGroup.value,this.Id).subscribe((data:any)=>{
       this.router.navigate(["dashboard"]);
     });
   }
-
-// getById(){
-//   this.addService.getById(this.Id).subscribe((data:any)=>{
-//     console.log(data);
-//     this.address=data.data;
-//   })
-// }
 
 }
